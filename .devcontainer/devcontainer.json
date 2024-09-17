@@ -1,0 +1,24 @@
+{
+	"name": "Aspire Workshop",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/dotnet/sdk:9.0",
+	"features": {
+		"ghcr.io/devcontainers/features/dotnet:2": {
+			"workloads": "aspire"
+		}
+    },
+    // Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "cd ./src && dotnet dev-certs https --clean && dotnet dev-certs https --trust && dotnet restore",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-dotnettools.vscode-dotnet-runtime",
+				"ms-dotnettools.csdevkit",
+                "ms-dotnettools.csharp",
+				"github.copilot"
+			]
+		}
+	}
+}
